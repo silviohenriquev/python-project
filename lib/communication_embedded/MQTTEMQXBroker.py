@@ -1,5 +1,4 @@
 import platform
-
 import subprocess
 
 
@@ -27,7 +26,7 @@ class MQTTEMQXBroker:
         if os_type == 'Windows':
             return 'Windows'
         elif os_type == 'Linux':
-            distro = platform.linux_distribution()[0]
+            distro = platform.system()
             if distro.lower() == 'raspbian':
                 return 'Raspbian'
             else:
