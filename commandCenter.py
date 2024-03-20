@@ -14,9 +14,9 @@ packetSensorData = PacketSensorData()
 packetCommandData = PacketCommandData()
 
 comm = MQTTEMQXCommunication(deviceFunction, deviceId)
-# broker = MQTTEMQXBroker()
+broker = MQTTEMQXBroker()
 
-# broker.initializeBroker()
+broker.initializeBroker()
 comm.begin()
 
 print("Iniciando o Centro de Comandos")
