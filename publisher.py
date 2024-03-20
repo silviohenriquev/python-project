@@ -1,6 +1,7 @@
 import paho.mqtt.client as mqtt
 from lib.sensors import *
 from lib.communication_embedded.MQTTEMQXCommunication import MQTTEMQXCommunication
+from lib.communication_embedded.MQTTEMQXBroker import MQTTEMQXBroker
 from lib.communication_embedded.commTypes import *
 from lib.communication_embedded.commConfig import *
 from time import sleep, time
@@ -20,7 +21,9 @@ packetSensorData = PacketSensorData()
 packetCommandData = PacketCommandData() 
 
 comm = MQTTEMQXCommunication(deviceFunction, deviceId)
+broker = MQTTEMQXBroker()
 
+broker.initializeBroker()
 comm.begin()
 initialTime = time()
 
