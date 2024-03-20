@@ -21,9 +21,7 @@ packetSensorData = PacketSensorData()
 packetCommandData = PacketCommandData() 
 
 comm = MQTTEMQXCommunication(deviceFunction, deviceId)
-# broker = MQTTEMQXBroker()
 
-# broker.initializeBroker(MQTT_HOST)
 comm.begin()
 initialTime = time()
 
