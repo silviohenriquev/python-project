@@ -26,8 +26,8 @@ class MQTTEMQXBroker:
         if os_type == 'Windows':
             return 'Windows'
         elif os_type == 'Linux':
-            distro = platform.system()
-            if distro.lower() == 'raspbian':
+            distro = platform.dist()[0] if hasattr(platform, 'dist') else None
+            if distro and distro.lower() == 'raspbian':
                 return 'Raspbian'
             else:
                 return 'Linux (Other)'
