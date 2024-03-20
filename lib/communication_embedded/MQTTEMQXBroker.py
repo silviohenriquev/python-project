@@ -9,7 +9,7 @@ class MQTTEMQXBroker:
     def initializeBroker(self):
         self.updateCommand()
         result = subprocess.run(self.cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-
+        
         if result.returncode == 0:
             print("Broker Iniciado com Sucesso!")
 
@@ -25,11 +25,5 @@ class MQTTEMQXBroker:
         os_type = platform.system()
         if os_type == 'Windows':
             return 'Windows'
-        elif os_type == 'Linux':
-            distro = platform.dist()[0] if hasattr(platform, 'dist') else None
-            if distro and distro.lower() == 'raspbian':
-                return 'Raspbian'
-            else:
-                return 'Linux (Other)'
         else:
-            return 'Unknown'
+            return "Raspbian"
