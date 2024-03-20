@@ -1,5 +1,6 @@
 import platform
 import subprocess
+import socket
 
 
 class MQTTEMQXBroker:
@@ -12,6 +13,8 @@ class MQTTEMQXBroker:
         
         if result.returncode == 0:
             print("Broker Iniciado com Sucesso!")
+            ip_address = socket.gethostbyname(socket.gethostname())
+            print("Endereço IP de acesso:", ip_address)
 
     def updateCommand(self):
         environment = self.detectEnvironment()
