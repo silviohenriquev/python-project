@@ -1,5 +1,4 @@
 import tkinter as tk
-from lib.sensors import *
 from lib.communication_embedded.MQTTEMQXCommunication import MQTTEMQXCommunication
 from lib.communication_embedded.MQTTEMQXBroker import MQTTEMQXBroker
 from lib.communication_embedded.commTypes import *
