@@ -9,11 +9,11 @@ deviceFunction = "publisher"
 deviceId = "testeclasse"
 timeStep = 3
 
-led = LED("GPIO4")
-fan1 = Fan("GPIO1")
-fan2 = Fan("GPIO2")
-tempSensor1 = TempSensor("GPIO5")
-tempSensor2 = TempSensor("GPIO6")
+led = LED(4)
+fan1 = Fan(17)
+fan2 = Fan(18)
+tempSensor1 = TempSensor("28-00000abcdeff")
+tempSensor2 = TempSensor("28-00000abcdeff")
 presenceSensor = PresenceSensor("GPIO7")
 
 packetSensorData = PacketSensorData()
@@ -34,5 +34,8 @@ while True:
         print("Mensagem recebida do Centro de Comando para o Raps")
         packetCommandData.decapsulatePacketCommandData(comm.getSensorsDataMsg())
         packetCommandData.printData()
-    
+        led.updateLedStatus(packetCommandData.led)
+        fan1.updateFanStatus(packetCommandData.fan1)
+        fan2.updateFanStatus(packetCommandData.fan2)
+        
 
