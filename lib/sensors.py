@@ -1,4 +1,5 @@
 import random
+import RPi.GPIO as GPIO
 from w1thermsensor import W1ThermSensor
 
 class TempSensor:
